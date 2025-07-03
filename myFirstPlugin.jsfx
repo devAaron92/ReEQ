@@ -1,0 +1,16 @@
+desc:My First Plugin
+
+@init
+// This block runs once when the plugin is loaded.
+// Use this to initialize variables.
+
+@slider
+// This block runs whenever a slider changes.
+// You update your variables or recalculate filter coefficients here.
+
+@sample
+// This block runs on every audio sample for real-time processing.
+// 'spl0' is the left channel, 'spl1' is the right channel.
+// Example: pass audio through without changes.
+spl0 = spl0;
+spl1 = spl1;
