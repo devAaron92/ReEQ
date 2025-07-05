@@ -1,16 +1,21 @@
-desc:My First Plugin
+desc:My Tone Generator
 
 @init
-// This block runs once when the plugin is loaded.
-// Use this to initialize variables.
+// runs once when the plugin loads
+frequency = 440 * pow(2, (24 - 69) / 12);
+pi = 3.14159265359;
+period = 2 * pi;
+phaseShift = (period * frequency) / sampleRate
+
+//sinWav = sin(angle);
+
 
 @slider
-// This block runs whenever a slider changes.
-// You update your variables or recalculate filter coefficients here.
+// runs when the user changes a slider
+//440 x 2 ^n-69/12 
+
+@block
+sampleRate = srate
 
 @sample
-// This block runs on every audio sample for real-time processing.
-// 'spl0' is the left channel, 'spl1' is the right channel.
-// Example: pass audio through without changes.
-spl0 = spl0;
-spl1 = spl1;
+// runs for every audio sample
