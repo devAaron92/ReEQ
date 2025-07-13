@@ -1,21 +1,25 @@
 desc:My Tone Generator
 
+slider1:60<0,127,1>MIDI Note
+
+
 @init
 // runs once when the plugin loads
-frequency = 440 * pow(2, (24 - 69) / 12);
 pi = 3.14159265359;
-period = 2 * pi;
-phaseShift = (period * frequency) / sampleRate
-
-//sinWav = sin(angle);
+phase = 0
 
 
 @slider
-// runs when the user changes a slider
-//440 x 2 ^n-69/12 
+frequency = 440 * pow(2, (slider1 - 69) / 12);
+period = 2 * pi;
+omega = (period * frequency) / sampleRate
+
+
 
 @block
 sampleRate = srate
 
 @sample
-// runs for every audio sample
+phase += omega
+spl0 = spl1 = sin(phase)
+
